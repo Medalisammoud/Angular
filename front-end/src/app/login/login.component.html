@@ -1,0 +1,43 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+      <img src="../../assets/img/fete.jpg" alt="Login">
+    </div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-12 mx-auto">
+              <h3 class="login-heading mb-4">ÊTES-VOUS DÉJÀ INSCRIT ? S'IDENTIFIER:</h3>
+              <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+                <div class="form-label-group">
+                  <input matInput name="email" ngModel type="email" placeholder="Entrer Votre Adresse Mail" #emailInput="ngModel" required
+                    email class="form-control" />
+
+                </div>
+
+                <div class="form-label-group">
+                  <input class="form-control" type="password" name="password" ngModel matInput placeholder="Entrer Votre Password"
+                    #passwordInput="ngModel" required />
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                  type="submit">
+                  Connexion
+                </button>
+                <div class="text-center">
+                  <p>
+                    Vous n'avez pas de compte ?
+                    <a href="/registration">S'INSCRIRE</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

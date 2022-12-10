@@ -1,0 +1,46 @@
+<app-dashboard></app-dashboard>
+<!-- ======== main-wrapper start =========== -->
+<main class="main-wrapper">
+
+    <app-header></app-header>
+
+
+    <div class="row" multi="true" *ngIf="posts.length > 0 && !isLoading">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6" *ngFor="let post of posts">
+            <div class="card-style-1 mb-30">
+
+                <div class="card-image">
+                    <a href="#0">
+                        <img  style="width: 100%; height: 200px;" [src]="post.image" [alt]="post.name" />
+                    </a>
+                </div>
+                <div class="card-content">
+                    <h4><a href="#0">Nom : {{ post.name }} </a></h4>
+                    <div style="display: flex; justify-content: space-between;">
+
+                      <h5><a href="#0">Prix : {{ post.price }} DT </a></h5>
+                      <h5><a href="#0">Quantité : {{ post.qty }} </a></h5>
+                    </div>
+                    <p>
+                        {{ post.desc }}
+                    </p>
+                </div>
+                <div class="card-meta" style="display: flex; justify-content: end;">
+
+                    <div>
+                        <a mat-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+
+                        <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end card-->
+
+        </div>
+    </div>
+    <!-- <mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions"
+    (page)="onChangedPage($event)" *ngIf="posts.length > 0"></mat-paginator> -->
+    <p class="info-text mat-body-1" *ngIf="posts.length <= 0 && !isLoading">No posts added yet!</p>
+
+    <app-footerdash></app-footerdash>
+</main>

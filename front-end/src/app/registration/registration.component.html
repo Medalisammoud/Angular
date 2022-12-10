@@ -1,0 +1,72 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container-fluid">
+
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image1">
+      <img src="../../assets/img/fete.jpg" alt="Registration">
+    </div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">CRÉEZ VOTRE COMPTE :</h3>
+              <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+                <div class="form-label-group" style="display:flex ;">
+                  <h4>Type de Compte : </h4>
+                  <div style="display:flex ; align-items: center; margin-top: -15px; margin-left: 10px;">
+                    <input type="radio" ngModel matInput #typeInput="ngModel" name="type" value="vendeur"> Vendeur<br>
+                    <input type="radio" ngModel matInput #typeInput="ngModel" name="type" style="margin-left: 20px;"
+                      value="client"> Client<br>
+                  </div>
+
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" class="form-control" ngModel matInput id="inputFirstName" #firstNameInput="ngModel"
+                    placeholder="Entrer votre Nom" name="firstName" />
+
+                </div>
+                <div class="form-label-group">
+                  <input type="text" class="form-control" ngModel matInput id="inputLastName" #lastNameInput="ngModel"
+                    placeholder="Entrer votre Prénom" name="lastName" />
+
+                </div>
+                <div class="form-label-group">
+                  <input type="email" class="form-control" ngModel matInput id="inputEmail" #emailInput="ngModel"
+                    placeholder="Entrer votre Adresse mail" name="email" />
+
+                </div>
+                <div class="form-label-group">
+                  <input type="password" class="form-control" ngModel id="inputPassword" #passwordInput="ngModel"
+                    placeholder="Entrer votre Password" name="password" />
+
+                </div>
+                <div class="form-label-group">
+                  <input type="text" class="form-control" ngModel matInput #phoneInput="ngModel" id="inputPhone"
+                    placeholder="Entrer votre Tél ..." name="phone" />
+
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                  type="submit" *ngIf="!isLoading">
+                  S'INSCRIRE
+                </button>
+                <div class="text-center">
+                  <p>
+                    Vous avez déjà un compte ?
+
+                    <a href="/login">CONNECTEZ-VOUS</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

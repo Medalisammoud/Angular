@@ -1,0 +1,54 @@
+<app-dashboard></app-dashboard>
+<!-- ======== main-wrapper start =========== -->
+<main class="main-wrapper">
+
+  <app-header></app-header>
+
+
+  <section class="tab-components">
+    <div class="container-fluid">
+      <form (submit)="onSavePost(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+
+        <div class="input-style-1">
+          <label>Nom Produit</label>
+          <input type="text" ngModel matInput #nameInput="ngModel" placeholder="Nom Produit" name="name" />
+        </div>
+        <div class="input-style-1">
+          <label>Prix</label>
+          <input type="text" ngModel matInput  placeholder="Prix" name="price" name="price"  />
+        </div>
+        <div class="input-style-1">
+          <label>Quantité</label>
+          <input type="number" ngModel matInput #qtyInput="ngModel" placeholder="Quantité" name="qty"  />
+        </div>
+        <div class="form-group">
+          <label for="file">Choisir Image Produit</label>
+          <input class="form-control" type="file" id="file" (change)="onChange($event)">
+        </div>
+        <div class="input-style-1">
+          <label>Description</label>
+          <textarea ngModel matInput #descInput="ngModel"  placeholder="Description Produit" name="desc"
+            rows="5"></textarea>
+        </div>
+        <div class="select-style-1">
+          <label>Categorie</label>
+          <div class="select-position">
+            <select ngModel matInput #catgInput="ngModel" name="catg">
+              <option value="">Choisir Categorie</option>
+              <option value="SPORT">SPORT</option>
+              <option value="FESTIVALE">FESTIVALE</option>
+              <option value="CINEMA">CINEMA</option>
+              <option value="SPECTACLE">SPECTACLE</option>
+              <option value="PROFESSIONNEL">PROFESSIONNEL</option>
+            </select>
+          </div>
+        </div>
+
+
+        <button mat-raised-button color="accent" type="submit">Save Product</button>
+      </form>
+    </div>
+  </section>
+
+  <app-footerdash></app-footerdash>
+</main>
